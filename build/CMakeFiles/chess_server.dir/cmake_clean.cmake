@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o"
+  "CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o.d"
+  "CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o"
+  "CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o.d"
   "CMakeFiles/chess_server.dir/src/server/main.cpp.o"
   "CMakeFiles/chess_server.dir/src/server/main.cpp.o.d"
   "CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o"

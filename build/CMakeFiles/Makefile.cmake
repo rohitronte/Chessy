@@ -11,8 +11,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/4.2.1/CMakeCCompiler.cmake"
   "CMakeFiles/4.2.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.2.1/CMakeSystem.cmake"
+  "/Users/rohitronte/Chessy/tests/CMakeLists.txt"
   "/opt/homebrew/lib/cmake/Boost-1.90.0/BoostConfig.cmake"
   "/opt/homebrew/lib/cmake/Boost-1.90.0/BoostConfigVersion.cmake"
+  "/opt/homebrew/lib/cmake/Catch2/Catch2Config.cmake"
+  "/opt/homebrew/lib/cmake/Catch2/Catch2ConfigVersion.cmake"
+  "/opt/homebrew/lib/cmake/Catch2/Catch2Targets-release.cmake"
+  "/opt/homebrew/lib/cmake/Catch2/Catch2Targets.cmake"
   "/opt/homebrew/lib/cmake/boost_headers-1.90.0/boost_headers-config-version.cmake"
   "/opt/homebrew/lib/cmake/boost_headers-1.90.0/boost_headers-config.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake"
@@ -59,10 +64,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/chess_server.dir/DependInfo.cmake"
   "CMakeFiles/chess_client.dir/DependInfo.cmake"
+  "tests/CMakeFiles/chess_tests.dir/DependInfo.cmake"
   )

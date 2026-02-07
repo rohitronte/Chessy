@@ -1267,4 +1267,6 @@ CMakeFiles/chess_server.dir/src/server/main.cpp.o: \
   /opt/homebrew/include/boost/asio/writable_pipe.hpp \
   /opt/homebrew/include/boost/asio/write_at.hpp \
   /opt/homebrew/include/boost/asio/impl/write_at.hpp \
+  /Users/rohitronte/Chessy/include/chess/chess_board.hpp \
+  /Users/rohitronte/Chessy/include/chess/chess_piece.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream

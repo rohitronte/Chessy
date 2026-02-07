@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/rohitronte/Chessy/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -142,6 +152,19 @@ chess_client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_client.dir/build.make CMakeFiles/chess_client.dir/build
 .PHONY : chess_client/fast
 
+#=============================================================================
+# Target rules for targets named chess_tests
+
+# Build rule for target.
+chess_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chess_tests
+.PHONY : chess_tests
+
+# fast build rule for target.
+chess_tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/chess_tests.dir/build.make tests/CMakeFiles/chess_tests.dir/build
+.PHONY : chess_tests/fast
+
 src/client/main.o: src/client/main.cpp.o
 .PHONY : src/client/main.o
 
@@ -189,6 +212,54 @@ src/client/networking/client_network.s: src/client/networking/client_network.cpp
 src/client/networking/client_network.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_client.dir/build.make CMakeFiles/chess_client.dir/src/client/networking/client_network.cpp.s
 .PHONY : src/client/networking/client_network.cpp.s
+
+src/server/chess/chess_board.o: src/server/chess/chess_board.cpp.o
+.PHONY : src/server/chess/chess_board.o
+
+# target to build an object file
+src/server/chess/chess_board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_server.dir/build.make CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o
+.PHONY : src/server/chess/chess_board.cpp.o
+
+src/server/chess/chess_board.i: src/server/chess/chess_board.cpp.i
+.PHONY : src/server/chess/chess_board.i
+
+# target to preprocess a source file
+src/server/chess/chess_board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_server.dir/build.make CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.i
+.PHONY : src/server/chess/chess_board.cpp.i
+
+src/server/chess/chess_board.s: src/server/chess/chess_board.cpp.s
+.PHONY : src/server/chess/chess_board.s
+
+# target to generate assembly for a file
+src/server/chess/chess_board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_server.dir/build.make CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.s
+.PHONY : src/server/chess/chess_board.cpp.s
+
+src/server/chess/chess_piece.o: src/server/chess/chess_piece.cpp.o
+.PHONY : src/server/chess/chess_piece.o
+
+# target to build an object file
+src/server/chess/chess_piece.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_server.dir/build.make CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o
+.PHONY : src/server/chess/chess_piece.cpp.o
+
+src/server/chess/chess_piece.i: src/server/chess/chess_piece.cpp.i
+.PHONY : src/server/chess/chess_piece.i
+
+# target to preprocess a source file
+src/server/chess/chess_piece.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_server.dir/build.make CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.i
+.PHONY : src/server/chess/chess_piece.cpp.i
+
+src/server/chess/chess_piece.s: src/server/chess/chess_piece.cpp.s
+.PHONY : src/server/chess/chess_piece.s
+
+# target to generate assembly for a file
+src/server/chess/chess_piece.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_server.dir/build.make CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.s
+.PHONY : src/server/chess/chess_piece.cpp.s
 
 src/server/main.o: src/server/main.cpp.o
 .PHONY : src/server/main.o
@@ -246,14 +317,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... chess_client"
 	@echo "... chess_server"
+	@echo "... chess_tests"
 	@echo "... src/client/main.o"
 	@echo "... src/client/main.i"
 	@echo "... src/client/main.s"
 	@echo "... src/client/networking/client_network.o"
 	@echo "... src/client/networking/client_network.i"
 	@echo "... src/client/networking/client_network.s"
+	@echo "... src/server/chess/chess_board.o"
+	@echo "... src/server/chess/chess_board.i"
+	@echo "... src/server/chess/chess_board.s"
+	@echo "... src/server/chess/chess_piece.o"
+	@echo "... src/server/chess/chess_piece.i"
+	@echo "... src/server/chess/chess_piece.s"
 	@echo "... src/server/main.o"
 	@echo "... src/server/main.i"
 	@echo "... src/server/main.s"

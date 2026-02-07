@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/chess_tests.dir/test_chess_board.cpp.o CMakeFiles/chess_tests.dir/__/src/server/chess/chess_board.cpp.o CMakeFiles/chess_tests.dir/__/src/server/chess/chess_piece.cpp.o -o chess_tests  /opt/homebrew/lib/libCatch2Main.a /opt/homebrew/lib/libCatch2.a

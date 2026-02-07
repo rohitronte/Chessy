@@ -1,4 +1,9 @@
 /Users/rohitronte/Chessy/build/CMakeFiles/chess_server.dir
 /Users/rohitronte/Chessy/build/CMakeFiles/chess_client.dir
+/Users/rohitronte/Chessy/build/CMakeFiles/test.dir
 /Users/rohitronte/Chessy/build/CMakeFiles/edit_cache.dir
 /Users/rohitronte/Chessy/build/CMakeFiles/rebuild_cache.dir
+/Users/rohitronte/Chessy/build/tests/CMakeFiles/chess_tests.dir
+/Users/rohitronte/Chessy/build/tests/CMakeFiles/test.dir
+/Users/rohitronte/Chessy/build/tests/CMakeFiles/edit_cache.dir
+/Users/rohitronte/Chessy/build/tests/CMakeFiles/rebuild_cache.dir

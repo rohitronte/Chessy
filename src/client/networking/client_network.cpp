@@ -1,41 +1,86 @@
 #include "client_network.hpp"
-#include "common.hpp"
 
-ClientNetwork::ClientNetwork(boost::asio::io_context& io_context, const std::string& host, short port)
-    : socket_(io_context), host_(host), port_(port), buffer_(1024) {}
+#include <iostream>
 
-void ClientNetwork::connect_and_send(const std::string& message) {
-    boost::asio::ip::tcp::resolver resolver(socket_.get_executor());
-    auto endpoints = resolver.resolve(host_, std::to_string(port_));
-    boost::asio::async_connect(socket_, endpoints, [this, message](const boost::system::error_code& error, const boost::asio::ip::tcp::endpoint&) {
-        handle_connect(error);
-        if (!error) {
-            boost::asio::async_write(socket_, boost::asio::buffer(message), [this](const boost::system::error_code& error, std::size_t) {
-                handle_write(error, 0);
-            });
+/* ---------------- Constructor ---------------- */
+
+ClientNetwork::ClientNetwork(boost::asio::io_context& io_context,
+                             const std::string& host,
+                             short port)
+    : resolver_(io_context),
+      socket_(io_context),
+      host_(host),
+      port_(port) {}
+
+/* ---------------- Start Client ---------------- */
+
+void ClientNetwork::start() {
+    auto endpoints = resolver_.resolve(host_, std::to_string(port_));
+
+    boost::asio::async_connect(
+        socket_,
+        endpoints,
+        [this](const boost::system::error_code& error, const tcp::endpoint&) {
+            handle_connect(error);
         }
-    });
+    );
 }
+
+/* ---------------- Connect Handler ---------------- */
 
 void ClientNetwork::handle_connect(const boost::system::error_code& error) {
+    if (!error) {
+        std::cout << "Connected to server.\n\n";
+
+        auto buffer = std::make_shared<std::vector<char>>(2048);
+
+        socket_.async_read_some(
+            boost::asio::buffer(*buffer),
+            [this, buffer](const boost::system::error_code& ec,
+                           std::size_t bytes) {
+                handle_read(buffer, ec, bytes);
+            }
+        );
+    }
+    else {
+        std::cerr << "Connection failed: "
+                  << error.message() << std::endl;
+    }
+}
+
+/* ---------------- Read Handler ---------------- */
+
+void ClientNetwork::handle_read(std::shared_ptr<std::vector<char>> buffer,
+                                const boost::system::error_code& error,
+                                std::size_t bytes_transferred) {
     if (error) {
-        std::cerr << "Connect failed: " << error.message() << std::endl;
-    } else {
-        std::cout << "Connected to server!" << std::endl;
+        std::cerr << "Disconnected from server.\n";
+        return;
     }
+
+    std::string message(buffer->begin(),
+                        buffer->begin() + bytes_transferred);
+
+    std::cout << message << std::endl;
+
+    // Re-arm read for continuous updates
+    auto newBuffer = std::make_shared<std::vector<char>>(2048);
+
+    socket_.async_read_some(
+        boost::asio::buffer(*newBuffer),
+        [this, newBuffer](const boost::system::error_code& ec,
+                          std::size_t bytes) {
+            handle_read(newBuffer, ec, bytes);
+        }
+    );
 }
 
-void ClientNetwork::handle_write(const boost::system::error_code& error, std::size_t) {
-    if (!error) {
-        socket_.async_read_some(boost::asio::buffer(buffer_), [this](const boost::system::error_code& error, std::size_t bytes) {
-            handle_read(error, bytes);
-        });
-    }
-}
+/* ---------------- Send Message ---------------- */
 
-void ClientNetwork::handle_read(const boost::system::error_code& error, std::size_t bytes_transferred) {
-    if (!error) {
-        std::string response(buffer_.begin(), buffer_.begin() + bytes_transferred);
-        std::cout << "Server response: " << response << std::endl;
-    }
+void ClientNetwork::sendMessage(const std::string& message) {
+    boost::asio::async_write(
+        socket_,
+        boost::asio::buffer(message),
+        [](const boost::system::error_code&, std::size_t) {}
+    );
 }

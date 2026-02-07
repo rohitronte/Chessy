@@ -100,19 +100,51 @@ CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rohitronte/Chessy/src/server/networking/server_network.cpp -o CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.s
 
+CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o: CMakeFiles/chess_server.dir/flags.make
+CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o: /Users/rohitronte/Chessy/src/server/chess/chess_board.cpp
+CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o: CMakeFiles/chess_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rohitronte/Chessy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o -MF CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o.d -o CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o -c /Users/rohitronte/Chessy/src/server/chess/chess_board.cpp
+
+CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rohitronte/Chessy/src/server/chess/chess_board.cpp > CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.i
+
+CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rohitronte/Chessy/src/server/chess/chess_board.cpp -o CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.s
+
+CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o: CMakeFiles/chess_server.dir/flags.make
+CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o: /Users/rohitronte/Chessy/src/server/chess/chess_piece.cpp
+CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o: CMakeFiles/chess_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/rohitronte/Chessy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o -MF CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o.d -o CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o -c /Users/rohitronte/Chessy/src/server/chess/chess_piece.cpp
+
+CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/rohitronte/Chessy/src/server/chess/chess_piece.cpp > CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.i
+
+CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/rohitronte/Chessy/src/server/chess/chess_piece.cpp -o CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.s
+
 # Object files for target chess_server
 chess_server_OBJECTS = \
 "CMakeFiles/chess_server.dir/src/server/main.cpp.o" \
-"CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o"
+"CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o" \
+"CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o" \
+"CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o"
 
 # External object files for target chess_server
 chess_server_EXTERNAL_OBJECTS =
 
 chess_server: CMakeFiles/chess_server.dir/src/server/main.cpp.o
 chess_server: CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o
+chess_server: CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o
+chess_server: CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o
 chess_server: CMakeFiles/chess_server.dir/build.make
 chess_server: CMakeFiles/chess_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/rohitronte/Chessy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable chess_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/rohitronte/Chessy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable chess_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chess_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

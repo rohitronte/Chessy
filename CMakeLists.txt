@@ -20,6 +20,10 @@ endif()
 add_executable(chess_server
     src/server/main.cpp
     src/server/networking/server_network.cpp
+
+    # Chess engine (IMPORTANT)
+    src/server/chess/chess_board.cpp
+    src/server/chess/chess_piece.cpp
 )
 
 # Client executable
@@ -29,5 +33,8 @@ add_executable(chess_client
 )
 
 # No Boost::system linking needed!
+
+enable_testing()
+add_subdirectory(tests)
 
 

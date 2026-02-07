@@ -2,9 +2,11 @@
 #define CLIENT_NETWORK_HPP
 
 #include <boost/asio.hpp>
+#include <memory>
 #include <string>
 #include <vector>
-#include <iostream>
+
+using boost::asio::ip::tcp;
 
 class ClientNetwork {
 public:
@@ -12,20 +14,20 @@ public:
                   const std::string& host,
                   short port);
 
-    void connect_and_send(const std::string& message);
+    void start();
+    void sendMessage(const std::string& message);
 
 private:
     void handle_connect(const boost::system::error_code& error);
-    void handle_write(const boost::system::error_code& error,
-                      std::size_t bytes_transferred);
-    void handle_read(const boost::system::error_code& error,
+    void handle_read(std::shared_ptr<std::vector<char>> buffer,
+                     const boost::system::error_code& error,
                      std::size_t bytes_transferred);
 
-    boost::asio::ip::tcp::socket socket_;
+private:
+    tcp::resolver resolver_;
+    tcp::socket socket_;
     std::string host_;
     short port_;
-    std::vector<char> buffer_;
 };
 
-#endif // CLIENT_NETWORK_HPP
-
+#endif

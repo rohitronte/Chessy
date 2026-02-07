@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/rohitronte/Chessy/src/server/chess/chess_board.cpp" "CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o" "gcc" "CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o.d"
+  "/Users/rohitronte/Chessy/src/server/chess/chess_piece.cpp" "CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o" "gcc" "CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o.d"
   "/Users/rohitronte/Chessy/src/server/main.cpp" "CMakeFiles/chess_server.dir/src/server/main.cpp.o" "gcc" "CMakeFiles/chess_server.dir/src/server/main.cpp.o.d"
   "/Users/rohitronte/Chessy/src/server/networking/server_network.cpp" "CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o" "gcc" "CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o.d"
   )

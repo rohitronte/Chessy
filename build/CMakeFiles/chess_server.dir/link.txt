@@ -1,1 +1,1 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/chess_server.dir/src/server/main.cpp.o CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o -o chess_server
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/chess_server.dir/src/server/main.cpp.o CMakeFiles/chess_server.dir/src/server/networking/server_network.cpp.o CMakeFiles/chess_server.dir/src/server/chess/chess_board.cpp.o CMakeFiles/chess_server.dir/src/server/chess/chess_piece.cpp.o -o chess_server
